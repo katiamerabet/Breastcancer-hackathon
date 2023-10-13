@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+
+    <title>Histoires</title>
+    <style>
+        /* Style pour la mise en page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #histoires-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="histoires-container">
+
+        <div class="card">
+            <h2>Titre de l'histoire 1</h2>
+            <p>Contenu de l'histoire 1</p>
+            <button>J'aime</button>
+            <button>Partager</button>
+        </div>
+
+        <div class="card">
+            <h2>Titre de l'histoire 2</h2>
+            <p>Contenu de l'histoire 2</p>
+            <button>J'aime</button>
+            <button>Partager</button>
+        </div>
+
+        <!-- Ajoutez d'autres histoires en copiant le bloc ci-dessus -->
+
+    </div>
+
+    <script>
+       
+             
+    
+    async function checkStory() {
+    const apiUrl = "https://hackathon-q0nfwykmx-yasserbaraghs-projects.vercel.app/api/stories";
+    try {
+        const response = await fetch(apiUrl, {
+          method: "GET",
+          mode: "no-cors",
+      });
+        const rawData = await response.text();
+        console.log('Raw Data:', rawData);
+
+        try {
+                const data = JSON.parse(rawData);
+                console.log('Parsed Data:', data);
+            } catch (parseError) {
+                console.error('Erreur lors du parsing JSON:', parseError);
+            }
+        } catch (error) {
+            console.error("Erreur lors de la récupération des données:", error);
+        }
+    }
+
+    // Appeler la fonction lors du chargement du DOM
+    document.addEventListener("DOMContentLoaded", function () {
+        checkStory();
+    });
+
+    </script>
+
+</body>
+</html>
