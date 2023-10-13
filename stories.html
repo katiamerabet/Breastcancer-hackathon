@@ -61,7 +61,7 @@
     <div id="histoires-container">
 
         <div class="card">
-            <h2>Titre de l'histoire 1</h2>
+            <h2 >Titre de l'histoire 1</h2>
             <p>Contenu de l'histoire 1</p>
             <button>J'aime</button>
             <button>Partager</button>
@@ -73,40 +73,21 @@
             <button>J'aime</button>
             <button>Partager</button>
         </div>
-
-        <!-- Ajoutez d'autres histoires en copiant le bloc ci-dessus -->
-
     </div>
 
     <script>
-       
-             
-    
-    async function checkStory() {
+
     const apiUrl = "https://hackathon-q0nfwykmx-yasserbaraghs-projects.vercel.app/api/stories";
-    try {
-        const response = await fetch(apiUrl, {
-          method: "GET",
-          mode: "no-cors",
-      });
-        const rawData = await response.text();
-        console.log('Raw Data:', rawData);
+      async function checkstory(){
+            const response = await fetch(apiUrl);
 
-        try {
-                const data = JSON.parse(rawData);
-                console.log('Parsed Data:', data);
-            } catch (parseError) {
-                console.error('Erreur lors du parsing JSON:', parseError);
-            }
-        } catch (error) {
-            console.error("Erreur lors de la récupération des données:", error);
-        }
-    }
+          
+            var data = await response.json();
 
-    // Appeler la fonction lors du chargement du DOM
-    document.addEventListener("DOMContentLoaded", function () {
-        checkStory();
-    });
+            console.log(data);
+        };
+
+        checkstory();
 
     </script>
 
