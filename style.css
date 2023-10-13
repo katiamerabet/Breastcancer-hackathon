@@ -12,7 +12,10 @@ body {
     position: relative; /* Permet de positionner le pseudo-élément par rapport à ce conteneur */
     min-height: 100vh;
     flex-direction: column;
-  }
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+      }
   
   body::before {
     content: "";
@@ -21,7 +24,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(245, 134, 153, 0.733),rgba(235, 90, 90, 0.589));
+    background: linear-gradient(to bottom, rgba(245, 134, 153, 0.384),rgba(235, 90, 90, 0.219));
     z-index: -1; /* Place le pseudo-élément en dessous des autres éléments */
   }
   
